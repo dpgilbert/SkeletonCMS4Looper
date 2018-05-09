@@ -1,4 +1,4 @@
-// A cms3 looper to compare delta-beta and effective area pileup corrections
+// A skeleton cms4 looper - Dylan Gilbert - May 2018
 
 #include "../interface/ScanChain.h"
 
@@ -30,7 +30,7 @@ void CMS4Looper::ScanChain (TChain * tree, const char* outname) {
 
   TFile * OutFile_ = new TFile(Form("%s.root", outname), "RECREATE");
   OutFile_->cd();
-
+  // Write histograms
   OutFile_->Close();
   
 }
