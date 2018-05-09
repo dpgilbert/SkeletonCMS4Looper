@@ -16,11 +16,11 @@ echo "[wrapper] COPYDIR   = " ${COPYDIR}
 #
 # set up environment
 #
-CMSSW_VERSION=CMSSW_8_0_26
+CMSSW_VERSION=CMSSW_9_4_6_patch1
 
 ###version using cvmfs install of CMSSW
 echo "[wrapper] setting env"
-export SCRAM_ARCH=slc6_amd64_gcc530
+export SCRAM_ARCH=slc6_amd64_gcc630
 source /cvmfs/cms.cern.ch/cmsset_default.sh
 OLDDIR=`pwd`
 cd /cvmfs/cms.cern.ch/$SCRAM_ARCH/cms/cmssw/$CMSSW_VERSION/src
@@ -69,10 +69,6 @@ fi
 #
 
 echo "[wrapper] extracting input sandbox"
-tar -zxf input.tar.gz
-
-#source job_input/setupenv.sh
-#printenv
 
 TEMP=job_input_${TAG}_${FILEID}
 
@@ -90,7 +86,7 @@ ls
 #
 echo "[wrapper] running: ./CMS3Looper.exe ${FILEID} ${FILE}"
 
-./CMS3Looper.exe ${FILEID} ${FILE}
+./CMS4Looper.exe ${FILEID} ${FILE}
 
 #
 # do something with output

@@ -15,14 +15,9 @@ ifndef VERBOSE
   QUIET := @
 endif
 
-#ROOFITINCLUDE = 
-#ifdef CMSSW_VERSION
-#	ROOFITINCLUDE = $(shell scramv1 tool info roofitcore | grep INCLUDE | sed 's/^INCLUDE=/-I/')
-#endif
-
 CC = g++
-CMSROOT = ./
-INCLUDE = $(shell root-config --cflags) -I$(CMSROOT) -I$(CMSROOT)/CORE
+CMSROOT = ../
+INCLUDE = $(shell root-config --cflags) -I$(CMSROOT)/interface
 CFLAGS = -Wall -Wno-unused-function -g -O2 -fPIC $(INCLUDE) $(EXTRACFLAGS)
 ROOTLIBS = $(shell root-config --ldflags --cflags --libs) -lTMVA #-lEG -lGenVector
 COREDIR = CORE
@@ -36,17 +31,17 @@ DIR = ./
 
 SOURCES = $(wildcard *.cc)
 OBJECTS = $(SOURCES:.cc=.o)
-LIB = libCMS3Looper.so
+LIB = libCMS4Looper.so
 
 CORESOURCES = $(wildcard ../../CORE/*.cc) $(wildcard ../../CORE/Tools/*.cc) 
 COREOBJECTS = $(CORESOURCES:.cc=.o) 
-CORELIB = libCMS3LooperCORE.so
+CORELIB = libCMS4LooperCORE.so
 
 DICT = LinkDef_out.o
 
 LIBS = $(LIB) $(CORELIB)
 
-EXE = CMS3Looper.exe
+EXE = CMS4Looper.exe
 
 #
 # how to make it
@@ -62,7 +57,7 @@ $(LIB):	$(DICT) $(OBJECTS)
 	echo "$(LINKER) -shared -o $@ $(OBJECTS) $(DICT) $(LINKERFLAGS)"; \
 	$(LINKER) -shared -o $@ $(OBJECTS) $(DICT) $(LINKERFLAGS)
 
-LinkDef_out.cxx: LinkDef.h
+LinkDef_out.cxx: ../interface/LinkDef.h
 	$(QUIET) echo "Making CINT dictionaries"; \
 	rootcint -f LinkDef_out.cc -c -p $(DICTINCLUDE)  LinkDef.h; \
 	cat LinkDef_out.cc > LinkDef_out.cxx; rm LinkDef_out.cc

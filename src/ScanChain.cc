@@ -1,8 +1,6 @@
 // A cms3 looper to compare delta-beta and effective area pileup corrections
 
-#include <iostream>
-#include <assert.h>
-#include "ScanChain.h"
+#include "../interface/ScanChain.h"
 
 using namespace std;
 using namespace tas;
