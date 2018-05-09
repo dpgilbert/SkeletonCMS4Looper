@@ -12,7 +12,7 @@
 #include "Math/LorentzVector.h"
 #include "../../CORE/IsoTrackVeto.h"
 #include "../../CORE/IsolationTools.h"
-#include "../../CORE/CMS3.h"
+#include "../../CORE/CMS3.h" // Called CMS3 for legacy reasons...
 #include "../../CORE/Tools/utils.h"
 #include "../../CORE/MuonSelections.h"
 #include "../../CORE/MCSelections.h"
@@ -24,10 +24,10 @@
 #define likely(x)       __builtin_expect((x),1)
 #define unlikely(x)     __builtin_expect((x),0)
 
-class CMS3Looper {
+class CMS4Looper {
  public:
-  CMS3Looper() {};
-  ~CMS3Looper() {};
+  CMS4Looper() {};
+  ~CMS4Looper() {};
   
   void ScanChain(TChain *, const char* outname = "TestSample");
 

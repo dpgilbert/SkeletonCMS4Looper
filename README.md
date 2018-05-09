@@ -1,5 +1,10 @@
 Edit src/ScanChain.cc to add analysis code and write TH1s etc to output. Edit interface/ScanChain.h as necessary.
 
+Test interactively with
+```bash
+./CMS4Looper.exe OUTPUT_NAME INPUT_FILE
+```
+
 In src/
 ```bash
 make

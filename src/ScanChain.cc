@@ -5,12 +5,12 @@
 using namespace std;
 using namespace tas;
 
-void CMS3Looper::ScanChain (TChain * tree, const char* outname) {
+void CMS4Looper::ScanChain (TChain * tree, const char* outname) {
   TH1::SetDefaultSumw2(true);
 
   // Book histograms
 
-  cms3.Init(tree);
+  cms3.Init(tree); // Called cms3 for legacy reasons...
   const int nEvents = tree->GetEntries();
   const int event_max = nEvents;
 
@@ -48,7 +48,7 @@ int main (int argc, char ** argv) {
   chain->Add(filename);
   cout << "Added " << filename << " to TChain" << endl;
 
-  CMS3Looper cms3l;
-  cms3l.ScanChain(chain,outfileid);
+  CMS4Looper cms4l;
+  cms4l.ScanChain(chain,outfileid);
   return 0;
 }

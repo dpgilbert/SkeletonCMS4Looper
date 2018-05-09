@@ -84,7 +84,7 @@ ls
 #
 # run it
 #
-echo "[wrapper] running: ./CMS3Looper.exe ${FILEID} ${FILE}"
+echo "[wrapper] running: ./CMS4Looper.exe ${FILEID} ${FILE}"
 
 ./CMS4Looper.exe ${FILEID} ${FILE}
 
