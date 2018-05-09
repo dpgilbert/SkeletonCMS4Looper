@@ -2,7 +2,7 @@ Edit src/ScanChain.cc to add analysis code and write TH1s etc to output. Edit in
 
 In src/
 ```bash
-make all
+make
 ./writeConfig.sh /Directory/containing/input/files/to/run/on TAG_FOR_RUN
 condor_submit condor/condor_file_you_just_made.cmd
 ```
