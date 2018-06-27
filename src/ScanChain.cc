@@ -37,7 +37,7 @@ void CMS4Looper::ScanChain (TChain * tree, const char* outname) {
 
 int main (int argc, char ** argv) {
   if (argc < 3) {
-    cout << "USAGE: ./ScanChain.exe <tag> <filename>" << endl;
+    cout << "USAGE: ./CMS4Looper.exe <tag> <filename>" << endl;
     return 1;
   }
 
